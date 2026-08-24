@@ -5,3 +5,4 @@ tmp/
 ssh/*
 !ssh/.ssh/config
 shelved-apps.md
+README.md
