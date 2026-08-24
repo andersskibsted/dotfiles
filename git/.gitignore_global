@@ -1,0 +1,8 @@
+.DS_Store
+*.swp
+.env
+dist-newstyle/
+.stack-work/
+node_modules/
+__pycache__/
+*.pyc

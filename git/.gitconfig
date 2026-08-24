@@ -1,0 +1,14 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = andersskibsted
+	email = abo@internettet.email
+[init]
+	default = branch
+	defaultBranch = main
+[core]
+	editor = nvim
+	excludesfile = /Users/andersskibsted/dotfiles/git/.gitignore_global

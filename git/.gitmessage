@@ -1,0 +1,24 @@
+# <type>: <kort beskrivelse i imperativ form, under 50 tegn>
+# |<----  Prøv at holde denne linje under 50 tegn  ---->|
+
+# Uddybende forklaring, hvis nødvendigt (wrap ved ca. 72 tegn per linje).
+# Forklar HVAD ændringen gør og HVORFOR — koden i diffen viser allerede HVORDAN.
+# Efterlad en tom linje mellem denne body og linjen ovenfor.
+
+
+# --- Type-forslag ---
+# feat:     ny funktionalitet
+# fix:      retter en fejl
+# docs:     kun dokumentation
+# refactor: hverken bugfix eller ny feature, omstrukturering af eksisterende kode
+# test:     tilføjer eller retter tests
+# chore:    vedligehold, dependencies, config, build-værktøjer
+# perf:     ændring der forbedrer performance
+# style:    formatering, whitespace — ingen ændring i logik
+
+# --- Tommelfingerregler ---
+# - Imperativ form: "Tilføj", "Ret", "Fjern" — ikke "Tilføjede" eller "Tilføjer"
+# - Forklar hvorfor ændringen var nødvendig, ikke kun hvad den gør
+# - Referér evt. issue/ticket nederst, fx: "Refs #42" eller "Closes #17"
+
+# Linjer der starter med '#' fjernes automatisk fra den endelige besked.
