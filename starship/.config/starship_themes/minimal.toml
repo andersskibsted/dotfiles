@@ -1,0 +1,77 @@
+# ~/dotfiles/starship/.config/starship.toml
+# Alle muligheder: https://starship.rs/config/
+
+add_newline = true        # tom linje mellem kommandoer
+command_timeout = 1000    # ms før et langsomt modul opgives
+
+# ---------------------------------------------------------------
+# HVILKE moduler og I HVILKEN rækkefølge.
+# Kun moduler nævnt her vises. Sprog-moduler dukker kun op,
+# når du står i et projekt der bruger sproget.
+# ---------------------------------------------------------------
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$haskell\
+$ocaml\
+$rust\
+$python\
+$nodejs\
+$java\
+$cmd_duration\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+# Højre side af prompten
+right_format = """$time"""
+
+# ---------------------------------------------------------------
+# HVORDAN hvert modul ser ud og opfører sig
+# ---------------------------------------------------------------
+
+[directory]
+truncation_length = 3     # vis højst 3 mapper
+truncate_to_repo = true   # i et git-repo: vis stien fra repo-roden
+style = "bold cyan"
+
+[git_branch]
+style = "bold purple"
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+style = "bold yellow"
+
+[haskell]
+symbol = "λ "
+
+[cmd_duration]
+min_time = 2000           # vis kun hvis kommandoen tog over 2 sek.
+format = "took [$duration]($style) "
+style = "yellow"
+
+[jobs]
+symbol = "✦ "             # vises når der kører jobs i baggrunden
+
+[status]
+disabled = false          # slået fra som standard
+format = '[$symbol$status]($style) '
+symbol = "✘ "
+style = "bold red"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold green)"   # vi-mode: normal mode
+
+[time]
+disabled = false          # slået fra som standard
+time_format = "%H:%M"
+format = "[$time]($style)"
+style = "bright-black"
