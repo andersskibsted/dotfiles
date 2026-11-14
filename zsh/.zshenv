@@ -11,7 +11,7 @@ export PATH="/Applications/SuperCollider.app/Contents/MacOS/:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/qt/6.8.1/macos/bin:$PATH"
 export PATH="/Users/andersskibsted/.dotnet/tools:$PATH"
-export EDITOR=nvim
+export EDITOR=hx
 
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env"
 

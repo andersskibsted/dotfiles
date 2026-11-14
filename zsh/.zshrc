@@ -1,9 +1,10 @@
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 alias python="python3"
 
@@ -33,6 +34,11 @@ alias cr="cabal repl"
 alias cb="cabal build"
 alias reload="source ~/.zshrc"
 
+# emacs
+alias e='emacsclient -t -a ""'      # terminal-editing, autostarter daemon
+alias ec='emacsclient -c -a ""'     # GUI-frame, autostarter daemon
+alias emacs-restart='brew services restart emacs-plus@31'
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # fzf bruger fd
@@ -40,6 +46,12 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2>/dev/null || cat {}'"
+
+## Widgets
+# Open buffer line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
 
 proj() {
   cd "$(fd --type d --max-depth 2 . ~/projects ~/scratch ~/university | fzf)"
@@ -73,7 +85,14 @@ bats-exerc() {
 [[ ! -r '/Users/andersskibsted/.opam/opam-init/init.zsh' ]] || source '/Users/andersskibsted/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# zoxide start og rebinding af cd
+eval "$(zoxide init zsh --cmd cd)"
+export _ZO_EXCLUDE_DIRS="$HOME:**/.git:**/.git/*"
+
+# isabelle
+export PATH="/Applications/Isabelle2025-2.app/bin:$PATH"
